@@ -6,7 +6,7 @@ RUN apt update && apt install unzip -y \
     && mvn dependency:get --no-transfer-progress -Dartifact=org.keycloak:keycloak-themes:19.0.3 -Ddest=/tmp \
     && unzip /tmp/*.jar
 
-COPY src/main/resources/theme/icpbrasil/login/login-icpbrasil-info.ftl theme/base/login
+COPY src/main/resources/themes/icpbrasil/login/login-icpbrasil-info.ftl theme/base/login
 
 # build do pacote
 WORKDIR /usr/src/app
