@@ -6,7 +6,7 @@ RUN apt update && apt install unzip -y \
     && mvn dependency:get --no-transfer-progress -Dartifact=org.keycloak:keycloak-themes:19.0.3 -Ddest=/tmp \
     && unzip /tmp/*.jar
 
-COPY login-icpbrasil-info.ftl theme/base/login
+COPY src/main/resources/theme/icpbrasil/login/login-icpbrasil-info.ftl theme/base/login
 
 # build do pacote
 WORKDIR /usr/src/app
@@ -29,7 +29,7 @@ ENV KC_DB=dev-mem
 WORKDIR /opt/keycloak
 
 ## inclui o arquivo de formulário no tema do keycloak
-COPY --from=maven /usr/src/theme_root/theme/ ./themes/
+#COPY --from=maven /usr/src/theme_root/theme/ ./themes/
 COPY --from=maven /usr/src/app/target/authenticator-icpbrasil.jar ./providers/
 
 RUN ./bin/kc.sh build

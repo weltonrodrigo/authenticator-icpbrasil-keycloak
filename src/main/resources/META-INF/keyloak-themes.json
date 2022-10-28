@@ -1,0 +1,6 @@
+{
+  "themes": [{
+    "name" : "icpbrasil",
+    "types": [ "login" ]
+  }]
+}
